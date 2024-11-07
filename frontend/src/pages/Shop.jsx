@@ -112,14 +112,15 @@ const Shop = () => {
         {/* Price Filter */}
         <div className={`border border-gray-300 p-3 mt-6 rounded-lg ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>MAX PRICE: ${maxPrice}</p>
-          <input
+            <input
             type="range"
             min="30"
             max="300"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className='w-11/12 mx-auto'
+            className="w-11/12 mx-auto pastel-blue-slider"
           />
+          
         </div>
 
       </div>
