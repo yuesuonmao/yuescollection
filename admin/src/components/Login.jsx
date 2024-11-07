@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 const Login = ({ setToken }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async (email, password) => {
         try {
@@ -17,13 +18,10 @@ const Login = ({ setToken }) => {
             }
         } catch (error) {
             if (error.response) {
-                // The request was made and the server responded with a status code that falls out of the range of 2xx
                 toast.error(error.response.data.message);
             } else if (error.request) {
-                // The request was made but no response was received
                 toast.error("No response from server");
             } else {
-                // Something happened in setting up the request that triggered an Error
                 toast.error("Error setting up your request");
             }
         }
@@ -32,6 +30,10 @@ const Login = ({ setToken }) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         handleLogin(email, password);
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -51,17 +53,23 @@ const Login = ({ setToken }) => {
                             required
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div className='mb-3 relative'>
                         <p className='text-sm font-medium text-gray-700 mb-2'>Password</p>
                         <input
                             aria-label="Password"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
-                            className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none'
-                            type="password"
+                            className='rounded-md w-full px-3 py-2 pr-12 border border-gray-300 outline-none'
+                            type={showPassword ? 'text' : 'password'}
                             placeholder='Enter your password'
                             required
                         />
+                        <span
+          onClick={togglePasswordVisibility}
+          className='absolute inset-y-0 right-3 flex items-center text-sm leading-5 cursor-pointer'
+        >
+          {showPassword ? 'Hide' : 'Show'}
+        </span>
                     </div>
                     <button className='mt-2 w-full py-2 px-4 rounded-md text-white bg-black' type="submit">Login</button>
                 </form>

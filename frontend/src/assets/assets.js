@@ -15,6 +15,8 @@ import about_img from './about_img.png'
 import contact_img from './contact_img.png'
 import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
+import facebookIcon from './facebookIcon.png'
+import instagramIcon from './instagramIcon.png'
 
 export const assets = {
     logo,
@@ -33,6 +35,8 @@ export const assets = {
     about_img,
     contact_img,
     stripe_logo,
-    cross_icon
+    cross_icon,
+    facebookIcon,
+    instagramIcon
 }
 
