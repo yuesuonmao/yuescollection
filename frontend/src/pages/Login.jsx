@@ -77,7 +77,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type={showPassword ? 'text' : 'password'}
-          className='w-full px-3 py-2 pr-10 border border-gray-800 rounded-md'
+          className='w-full px-3 py-2 pr-10 border border-gray-800 rounded-md hide-password-icon'
           placeholder='Password'
           required
         />

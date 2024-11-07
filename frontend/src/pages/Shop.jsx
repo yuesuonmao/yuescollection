@@ -11,7 +11,7 @@ const Shop = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
-  const [maxPrice, setMaxPrice] = useState(300); 
+  const [maxPrice, setMaxPrice] = useState(300);
 
   const toggleCategory = (e) => {
     const value = e.target.value;
@@ -112,15 +112,19 @@ const Shop = () => {
         {/* Price Filter */}
         <div className={`border border-gray-300 p-3 mt-6 rounded-lg ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>MAX PRICE: ${maxPrice}</p>
-            <input
+          <input
             type="range"
             min="30"
             max="300"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
             className="w-11/12 mx-auto pastel-blue-slider"
+            style={{
+              background: `linear-gradient(to right, #b3d1f2 ${((maxPrice - 30) / (300 - 30)) * 100}%, transparent 0%)`
+            }}
           />
-          
+
+
         </div>
 
       </div>
